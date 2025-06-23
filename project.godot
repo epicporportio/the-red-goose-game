@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="red goose game"
+config/name="the red goose game"
 run/main_scene="uid://jmwpr81dsjha"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
