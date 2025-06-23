@@ -30,3 +30,6 @@ sprite_frames = SubResource("SpriteFrames_krsl2")
 [node name="GooseCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 1)
 shape = SubResource("RectangleShape2D_oe8yf")
+
+[node name="Camera" type="Camera2D" parent="."]
+position_smoothing_enabled = true

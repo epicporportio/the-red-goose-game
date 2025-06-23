@@ -1,26 +1,118 @@
-[gd_scene load_steps=4 format=3 uid="uid://jmwpr81dsjha"]
+[gd_scene load_steps=8 format=3 uid="uid://jmwpr81dsjha"]
 
+[ext_resource type="Script" uid="uid://b11cnasgsji8h" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://gce2la7yom74" path="res://scenes/goose.tscn" id="1_uwrxv"]
-[ext_resource type="Texture2D" uid="uid://5dnugo6ot0ok" path="res://addons/images.png" id="1_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://bum3esdd0pai1" path="res://assets/red goose sprites.png" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://bmb778ssa55me" path="res://scenes/double_jump.tscn" id="4_lbhrr"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cj0n"]
-size = Vector2(1082, 12)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
+texture = ExtResource("2_yqjtg")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:0/0 = 0
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:0/0 = 0
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:0/0 = 0
+11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:0/0 = 0
+12:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:0/0 = 0
+13:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:1/0 = 0
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:1/0 = 0
+10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:1/0 = 0
+11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:1/0 = 0
+12:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:1/0 = 0
+13:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+1:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_lbhrr"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_lnu2h")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yqjtg"]
+distance = -95.0
 
 [node name="game" type="Node2D"]
-
-[node name="Floor" type="StaticBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor"]
-modulate = Color(0.176675, 0.802016, 0, 1)
-position = Vector2(1.68085e-05, 6)
-scale = Vector2(4.80889, 0.0533333)
-texture = ExtResource("1_yqjtg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(0, 6)
-shape = SubResource("RectangleShape2D_8cj0n")
+script = ExtResource("1_lnu2h")
 
 [node name="Goose" parent="." instance=ExtResource("1_uwrxv")]
-position = Vector2(25, -25)
+top_level = true
+position = Vector2(34, -60)
 
-[node name="Camera" type="Camera2D" parent="."]
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = SubResource("TileSet_lbhrr")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -196602, 0, 0, -196601, 0, 0, 9, 0, 0, 10, 0, 0, 13, 0, 0, 14, 0, 0, -131055, 0, 0, -131054, 0, 0, -262124, 0, 0, -262123, 0, 0, 0, 0, 1, 65536, 65536, 1, 65537, 65536, 1, 65538, 65536, 1, 65539, 65536, 1, 3, 0, 1, 2, 0, 1, 1, 0, 1, -131066, 0, 1, -65530, 65536, 1, 6, 65536, 1, -131065, 0, 1, -65529, 65536, 1, 7, 65536, 1, 65545, 65536, 1, 65546, 65536, 1, 65549, 65536, 1, 65550, 65536, 1, -65519, 65536, 1, -65518, 65536, 1, -196588, 65536, 1, -196587, 65536, 1, -131048, 0, 0, -65511, 0, 0, -65510, 65536, 0, -65509, 65536, 0, -65508, 65536, 0, -131043, 65536, 0, -65512, 0, 1, 24, 0, 1, 25, 0, 1, 26, 65536, 1, 27, 65536, 1, 28, 65536, 1, 29, 65536, 1, -65507, 65536, 1, 65560, 65536, 1, 65561, 65536, 1, 65562, 65536, 1, 65563, 65536, 1, 65564, 65536, 1, 65565, 65536, 1, -131072, 65536, 5, -65527, 65536, 5, -262137, 65536, 4, -327659, 65536, 4, -196579, 65536, 3, -131045, 65536, 3, -65522, 65536, 2, -131047, 0, 4, -196583, 0, 3, -262119, 0, 3, -327655, 0, 2, -196590, 0, 4, -262126, 0, 2, -131069, 0, 4, -196605, 0, 3, -262141, 0, 2, -131070, 65536, 4)
+
+[node name="WorldBorder" type="Node2D" parent="."]
+
+[node name="BoundarySouth" type="Area2D" parent="WorldBorder"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder/BoundarySouth"]
+position = Vector2(0, 270)
+shape = SubResource("WorldBoundaryShape2D_yqjtg")
+
+[node name="DoubleJump" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(424, -24)
+
+[connection signal="body_entered" from="WorldBorder/BoundarySouth" to="." method="_on_boundary_south_body_entered"]
+[connection signal="doublejump" from="DoubleJump" to="." method="_on_double_jump_doublejump"]
