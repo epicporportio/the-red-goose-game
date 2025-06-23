@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://gce2la7yom74"]
+
+[ext_resource type="Script" uid="uid://prmaukupf55p" path="res://scripts/goose.gd" id="1_wf0t2"]
+[ext_resource type="Texture2D" uid="uid://6n8nmk8esbbk" path="res://assets/goose.png" id="2_g7ad0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsotj"]
+atlas = ExtResource("2_g7ad0")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_krsl2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsotj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oe8yf"]
+size = Vector2(47, 48)
+
+[node name="Goose" type="CharacterBody2D"]
+script = ExtResource("1_wf0t2")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_krsl2")
+
+[node name="GooseCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 1)
+shape = SubResource("RectangleShape2D_oe8yf")
