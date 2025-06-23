@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://jmwpr81dsjha"]
+[gd_scene load_steps=9 format=3 uid="uid://jmwpr81dsjha"]
 
 [ext_resource type="Script" uid="uid://b11cnasgsji8h" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://gce2la7yom74" path="res://scenes/goose.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://bum3esdd0pai1" path="res://assets/red goose sprites.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://bmb778ssa55me" path="res://scenes/double_jump.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://cg2jcki2sqag8" path="res://scenes/super_dash.tscn" id="5_iywne"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -114,5 +115,10 @@ shape = SubResource("WorldBoundaryShape2D_yqjtg")
 [node name="DoubleJump" parent="." instance=ExtResource("4_lbhrr")]
 position = Vector2(424, -24)
 
+[node name="SuperDash" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(328, -71)
+scale = Vector2(0.1, 0.1)
+
 [connection signal="body_entered" from="WorldBorder/BoundarySouth" to="." method="_on_boundary_south_body_entered"]
 [connection signal="doublejump" from="DoubleJump" to="." method="_on_double_jump_doublejump"]
+[connection signal="superdash" from="SuperDash" to="." method="_on_super_dash_superdash"]
