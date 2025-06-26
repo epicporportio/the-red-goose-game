@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://jmwpr81dsjha"]
+[gd_scene load_steps=10 format=3 uid="uid://jmwpr81dsjha"]
 
 [ext_resource type="Script" uid="uid://b11cnasgsji8h" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://gce2la7yom74" path="res://scenes/goose.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://bum3esdd0pai1" path="res://assets/red goose sprites.png" id="2_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://bmb778ssa55me" path="res://scenes/double_jump.tscn" id="4_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://cg2jcki2sqag8" path="res://scenes/super_dash.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://cymk2yabn6f0a" path="res://scenes/duck.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://cp1pw47kmu0kq" path="res://scenes/death.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://dqs3oofqi2qt2" path="res://scenes/second_life.tscn" id="6_p57ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -88,7 +89,7 @@ texture = ExtResource("2_yqjtg")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lnu2h")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yqjtg"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_p57ef"]
 distance = -95.0
 
 [node name="game" type="Node2D"]
@@ -96,29 +97,34 @@ script = ExtResource("1_lnu2h")
 
 [node name="Goose" parent="." instance=ExtResource("1_uwrxv")]
 top_level = true
-position = Vector2(34, -60)
+position = Vector2(8, -36)
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 tile_set = SubResource("TileSet_lbhrr")
 format = 2
-layer_0/tile_data = PackedInt32Array(-65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -196602, 0, 0, -196601, 0, 0, 9, 0, 0, 10, 0, 0, 13, 0, 0, 14, 0, 0, -131055, 0, 0, -131054, 0, 0, -262124, 0, 0, -262123, 0, 0, 0, 0, 1, 65536, 65536, 1, 65537, 65536, 1, 65538, 65536, 1, 65539, 65536, 1, 3, 0, 1, 2, 0, 1, 1, 0, 1, -131066, 0, 1, -65530, 65536, 1, 6, 65536, 1, -131065, 0, 1, -65529, 65536, 1, 7, 65536, 1, 65545, 65536, 1, 65546, 65536, 1, 65549, 65536, 1, 65550, 65536, 1, -65519, 65536, 1, -65518, 65536, 1, -196588, 65536, 1, -196587, 65536, 1, -131048, 0, 0, -65511, 0, 0, -65510, 65536, 0, -65509, 65536, 0, -65508, 65536, 0, -131043, 65536, 0, -65512, 0, 1, 24, 0, 1, 25, 0, 1, 26, 65536, 1, 27, 65536, 1, 28, 65536, 1, 29, 65536, 1, -65507, 65536, 1, 65560, 65536, 1, 65561, 65536, 1, 65562, 65536, 1, 65563, 65536, 1, 65564, 65536, 1, 65565, 65536, 1, -131072, 65536, 5, -65527, 65536, 5, -262137, 65536, 4, -327659, 65536, 4, -196579, 65536, 3, -131045, 65536, 3, -65522, 65536, 2, -131047, 0, 4, -196583, 0, 3, -262119, 0, 3, -327655, 0, 2, -196590, 0, 4, -262126, 0, 2, -131069, 0, 4, -196605, 0, 3, -262141, 0, 2, -131070, 65536, 4)
+layer_0/name = "Back"
+layer_1/name = "Mid"
+layer_1/tile_data = PackedInt32Array(-65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -196602, 0, 0, -196601, 0, 0, 13, 0, 0, 14, 0, 0, -131055, 0, 0, -131054, 0, 0, -262124, 0, 0, -262123, 0, 0, 0, 0, 1, 65536, 65536, 1, 65537, 65536, 1, 65538, 65536, 1, 65539, 65536, 1, 3, 0, 1, 2, 0, 1, 1, 0, 1, -131066, 0, 1, -65530, 65536, 1, 6, 65536, 1, -131065, 0, 1, -65529, 65536, 1, 7, 65536, 1, 65549, 65536, 1, 65550, 65536, 1, -65519, 65536, 1, -65518, 65536, 1, -196588, 65536, 1, -196587, 65536, 1, -131048, 0, 0, -65511, 0, 0, -65510, 65536, 0, -65509, 65536, 0, -65508, 65536, 0, -131043, 65536, 0, -65512, 0, 1, 24, 0, 1, 25, 0, 1, 26, 65536, 1, 27, 65536, 1, 28, 65536, 1, 29, 65536, 1, -65507, 65536, 1, 65560, 65536, 1, 65561, 65536, 1, 65562, 65536, 1, 65563, 65536, 1, 65564, 65536, 1, 65565, 65536, 1, -131072, 65536, 5, -262137, 65536, 4, -327659, 65536, 4, -196579, 65536, 3, -131045, 65536, 3, -65522, 65536, 2, -131047, 0, 4, -196583, 0, 3, -262119, 0, 3, -327655, 0, 2, -196590, 0, 4, -262126, 0, 2, -131069, 0, 4, -196605, 0, 3, -262141, 0, 2, -131070, 65536, 4, -65503, 0, 0, -65502, 0, 0, -65501, 65536, 0, -65500, 65536, 0, -65499, 0, 0, -65498, 0, 0, -65497, 0, 0, -65496, 65536, 0, -65495, 0, 0, -65494, 65536, 0, -65493, 0, 0, -65492, 0, 0, -65491, 0, 0, -65490, 65536, 0, -65489, 0, 0, -65488, 0, 0, -65487, 0, 0, -131039, 0, 0, -131023, 0, 0, -196559, 65536, 0, 33, 0, 1, 34, 0, 1, 35, 0, 1, 36, 0, 1, 37, 0, 1, 38, 0, 1, 39, 0, 1, 40, 0, 1, 41, 0, 1, 42, 0, 1, 43, 0, 1, 44, 0, 1, 45, 0, 1, 46, 0, 1, 48, 0, 1, 49, 0, 1, 47, 0, 1, 65585, 0, 1, 65584, 0, 1, 65583, 0, 1, 65582, 0, 1, 65577, 0, 1, 65576, 0, 1, 65572, 0, 1, 65570, 0, 1, 65569, 65536, 1, 131105, 65536, 1, 131106, 65536, 1, 131107, 65536, 1, 131108, 65536, 1, 131109, 65536, 1, 131110, 65536, 1, 131111, 65536, 1, 131112, 65536, 1, 131113, 65536, 1, 131114, 65536, 1, 131115, 65536, 1, 131116, 65536, 1, 131117, 65536, 1, 131118, 65536, 1, 131119, 65536, 1, 131120, 65536, 1, 131121, 65536, 1, 196653, 65536, 1, 196652, 65536, 1, 196651, 65536, 1, 196650, 65536, 1, 196649, 65536, 1, 196648, 65536, 1, 196647, 65536, 1, 196646, 65536, 1, 196645, 65536, 1, 196644, 65536, 1, 196643, 65536, 1, 196642, 65536, 1, 196641, 65536, 1, 65571, 65536, 1, 65573, 65536, 1, 65574, 65536, 1, 65575, 65536, 1, 65578, 65536, 1, 65579, 65536, 1, 65580, 65536, 1, 65581, 65536, 1, 196654, 65536, 1, 196655, 65536, 1, 196656, 65536, 1, 196657, 65536, 1, -196575, 65536, 5, -262095, 65536, 3, -131030, 65536, 3, -131035, 65536, 4, -131025, 65536, 4, 262155, 65536, 0, 131084, 65536, 0, 393228, 65536, 0, 524299, 65536, 0, 655372, 65536, 0, 786443, 65536, 0, 917513, 0, 0, 917512, 0, 0, 983048, 0, 1, 983049, 0, 1, 1048584, 65536, 1, 1048585, 65536, 1, 851976, 65536, 5, 458763, 65536, 3, 65548, 65536, 3)
 
-[node name="WorldBorder" type="Node2D" parent="."]
+[node name="DeathToGravity" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(37, 187)
 
-[node name="BoundarySouth" type="Area2D" parent="WorldBorder"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathToGravity"]
+shape = SubResource("WorldBoundaryShape2D_p57ef")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder/BoundarySouth"]
-position = Vector2(0, 270)
-shape = SubResource("WorldBoundaryShape2D_yqjtg")
+[node name="Duck" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(664, -23)
 
-[node name="DoubleJump" parent="." instance=ExtResource("4_lbhrr")]
-position = Vector2(424, -24)
+[node name="SmashTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
 
-[node name="SuperDash" parent="." instance=ExtResource("5_iywne")]
-position = Vector2(328, -71)
-scale = Vector2(0.1, 0.1)
+[node name="SecondLife" parent="." instance=ExtResource("6_p57ef")]
+position = Vector2(792, -55)
 
-[connection signal="body_entered" from="WorldBorder/BoundarySouth" to="." method="_on_boundary_south_body_entered"]
-[connection signal="doublejump" from="DoubleJump" to="." method="_on_double_jump_doublejump"]
-[connection signal="superdash" from="SuperDash" to="." method="_on_super_dash_superdash"]
+[connection signal="powerup_used" from="Goose" to="." method="_on_goose_powerup_used"]
+[connection signal="smashed" from="Goose" to="." method="_on_goose_smashed"]
+[connection signal="body_entered" from="DeathToGravity" to="." method="_on_death_to_gravity_body_entered"]
+[connection signal="timeout" from="SmashTimer" to="." method="_on_smash_timer_timeout"]
+[connection signal="secondlife" from="SecondLife" to="." method="_on_second_life_secondlife"]

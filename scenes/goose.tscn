@@ -1,34 +1,100 @@
-[gd_scene load_steps=6 format=3 uid="uid://gce2la7yom74"]
+[gd_scene load_steps=16 format=3 uid="uid://gce2la7yom74"]
 
 [ext_resource type="Script" uid="uid://prmaukupf55p" path="res://scripts/goose.gd" id="1_wf0t2"]
-[ext_resource type="Texture2D" uid="uid://6n8nmk8esbbk" path="res://assets/goose.png" id="2_g7ad0"]
+[ext_resource type="Texture2D" uid="uid://ccumhsu2bmthu" path="res://assets/goose-export.png" id="2_wf0t2"]
+[ext_resource type="Texture2D" uid="uid://dlonvrauaywlk" path="res://assets/image-export.png" id="3_g7ad0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7ad0"]
+atlas = ExtResource("2_wf0t2")
+region = Rect2(0, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rsotj"]
-atlas = ExtResource("2_g7ad0")
-region = Rect2(0, 0, 50, 50)
+atlas = ExtResource("3_g7ad0")
+region = Rect2(0, 0, 58, 105)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krsl2"]
+atlas = ExtResource("3_g7ad0")
+region = Rect2(80, 0, 77, 105)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe8yf"]
+atlas = ExtResource("3_g7ad0")
+region = Rect2(164, 0, 76, 105)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ruu4t"]
+atlas = ExtResource("3_g7ad0")
+region = Rect2(250, 0, 90, 105)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6ked"]
+atlas = ExtResource("3_g7ad0")
+region = Rect2(340, 0, 90, 105)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r55u5"]
+atlas = ExtResource("3_g7ad0")
+region = Rect2(430, 0, 90, 105)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylft2"]
+atlas = ExtResource("3_g7ad0")
+region = Rect2(520, 0, 90, 105)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4s1n"]
+atlas = ExtResource("3_g7ad0")
+region = Rect2(610, 0, 90, 105)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_krsl2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rsotj")
+"texture": SubResource("AtlasTexture_g7ad0")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsotj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krsl2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oe8yf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ruu4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6ked")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r55u5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylft2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4s1n")
+}],
+"loop": false,
+"name": &"die",
+"speed": 15.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oe8yf"]
-size = Vector2(47, 48)
+size = Vector2(50, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7ad0"]
 
 [node name="Goose" type="CharacterBody2D"]
+scale = Vector2(0.3, 0.3)
 script = ExtResource("1_wf0t2")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_krsl2")
+flip_h = true
 
 [node name="GooseCollision" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 1)
 shape = SubResource("RectangleShape2D_oe8yf")
 
 [node name="Camera" type="Camera2D" parent="."]
@@ -36,5 +102,16 @@ position_smoothing_enabled = true
 
 [node name="DashTimer" type="Timer" parent="."]
 wait_time = 0.1
+one_shot = true
 
+[node name="Bounce" type="Area2D" parent="."]
+position = Vector2(0, 33)
+scale = Vector2(2.5, 0.8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounce"]
+position = Vector2(0, 1.23978e-05)
+shape = SubResource("RectangleShape2D_g7ad0")
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="area_shape_entered" from="Bounce" to="." method="_on_bounce_area_shape_entered"]

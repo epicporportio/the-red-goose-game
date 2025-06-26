@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp1pw47kmu0kq"]
+
+[ext_resource type="Script" uid="uid://dss1cjp676h8q" path="res://scripts/death.gd" id="1_0hhgj"]
+
+[node name="Death" type="Area2D"]
+script = ExtResource("1_0hhgj")
+
+[node name="DeathTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

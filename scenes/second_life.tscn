@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqs3oofqi2qt2"]
+
+[ext_resource type="Script" uid="uid://bklceyxqhwa0q" path="res://scripts/second_life.gd" id="1_oaffd"]
+[ext_resource type="Texture2D" uid="uid://c42k8naa3c4kj" path="res://icon.svg" id="1_obj5o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oaffd"]
+size = Vector2(128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtcam"]
+atlas = ExtResource("1_obj5o")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rqbc5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtcam")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SecondLife" type="Area2D"]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_oaffd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_oaffd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rqbc5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
